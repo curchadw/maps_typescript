@@ -1,8 +1,14 @@
 import { User } from './classes/User'
 import { Company } from './classes/Company'
+/// <reference types="@types/google.maps" />
 
-const user1 = new User();
-const company1 = new Company();
 
-console.log(user1)
-console.log(company1)
+
+new google.maps.Map(document.getElementById("map"),{
+  zoom:1,
+  center:{
+    lat:0,
+    lng:0
+  }
+});
+

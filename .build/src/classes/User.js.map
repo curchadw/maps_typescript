@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/classes/User.ts"],
+  "sourcesContent": ["import faker from 'faker'\n\nexport class User{\n   \n    //properties for a user\n    firstName:string\n    lastName:string\n    location:{\n        lat:number,\n        lng:number\n    }\n\n    constructor(){\n        this.firstName = faker.name.firstName()\n        this.lastName = faker.name.lastName();\n        this.location = {\n            lat:parseFloat(faker.address.latitude()),\n            lng:parseFloat(faker.address.longitude())\n        }\n    }\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA,mBAAkB;AAEX,WAAU;AAAA,EAGb;AAAA,EACA;AAAA,EACA;AAAA,EAKA,cAAa;AACT,SAAK,YAAY,qBAAM,KAAK;AAC5B,SAAK,WAAW,qBAAM,KAAK;AAC3B,SAAK,WAAW;AAAA,MACZ,KAAI,WAAW,qBAAM,QAAQ;AAAA,MAC7B,KAAI,WAAW,qBAAM,QAAQ;AAAA;AAAA;AAAA;",
+  "names": []
+}

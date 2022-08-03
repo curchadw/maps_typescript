@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/classes/Company.ts"],
+  "sourcesContent": ["import faker from 'faker'\n\nexport class Company{\n    companyName:string\n    phrase:string\n    location:{\n        lat:number,\n        lng:number\n    }\n\n    constructor(){\n        this.companyName = faker.company.companyName();\n        this.phrase = faker.company.catchPhrase();\n        this.location = {\n            lat:parseFloat(faker.address.latitude()),\n            lng:parseFloat(faker.address.longitude())\n        }\n    }\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA,mBAAkB;AAEX,cAAa;AAAA,EAChB;AAAA,EACA;AAAA,EACA;AAAA,EAKA,cAAa;AACT,SAAK,cAAc,qBAAM,QAAQ;AACjC,SAAK,SAAS,qBAAM,QAAQ;AAC5B,SAAK,WAAW;AAAA,MACZ,KAAI,WAAW,qBAAM,QAAQ;AAAA,MAC7B,KAAI,WAAW,qBAAM,QAAQ;AAAA;AAAA;AAAA;",
+  "names": []
+}

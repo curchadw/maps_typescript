@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/index.ts"],
+  "sourcesContent": ["import { User } from './classes/User'\nimport { Company } from './classes/Company'\n/// <reference types=\"@types/google.maps\" />\n\nconst user1 = new User();\nconst company1 = new Company();\n\nnew google.maps.Map(document.getElementById(\"map\"),{\n  zoom:1,\n  center:{\n    lat:0,\n    lng:0\n  }\n})\n\nconsole.log(user1)\nconsole.log(company1)\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA,kBAAqB;AACrB,qBAAwB;AAGxB,MAAM,QAAQ,IAAI;AAClB,MAAM,WAAW,IAAI;AAErB,IAAI,OAAO,KAAK,IAAI,SAAS,eAAe,QAAO;AAAA,EACjD,MAAK;AAAA,EACL,QAAO;AAAA,IACL,KAAI;AAAA,IACJ,KAAI;AAAA;AAAA;AAIR,QAAQ,IAAI;AACZ,QAAQ,IAAI;",
+  "names": []
+}

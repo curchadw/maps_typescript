@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/classes/Maps.ts"],
+  "sourcesContent": ["class Maps{\n\n}"],
+  "mappings": "AAAA,WAAU;AAAA;",
+  "names": []
+}
