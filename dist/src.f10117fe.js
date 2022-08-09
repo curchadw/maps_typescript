@@ -136871,83 +136871,155 @@ module['exports'] = faker;
 },{"./lib":"node_modules/faker/lib/index.js","./lib/locales":"node_modules/faker/lib/locales.js"}],"src/classes/User.ts":[function(require,module,exports) {
 "use strict";
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.User = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var _faker = _interopRequireDefault(require("faker"));
 
-var User =
-/** @class */
-function () {
-  function User() {
-    this.firstName = faker_1.default.name.firstName();
-    this.lastName = faker_1.default.name.lastName();
-    this.location = {
-      lat: parseFloat(faker_1.default.address.latitude()),
-      lng: parseFloat(faker_1.default.address.longitude())
-    };
-  }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  return User;
-}();
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var User = /*#__PURE__*/_createClass( //properties for a user
+function User() {
+  _classCallCheck(this, User);
+
+  _defineProperty(this, "firstName", void 0);
+
+  _defineProperty(this, "lastName", void 0);
+
+  _defineProperty(this, "location", void 0);
+
+  this.firstName = _faker.default.name.firstName();
+  this.lastName = _faker.default.name.lastName();
+  this.location = {
+    lat: parseFloat(_faker.default.address.latitude()),
+    lng: parseFloat(_faker.default.address.longitude())
+  };
+});
 
 exports.User = User;
 },{"faker":"node_modules/faker/index.js"}],"src/classes/Company.ts":[function(require,module,exports) {
 "use strict";
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Company = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var _faker = _interopRequireDefault(require("faker"));
 
-var Company =
-/** @class */
-function () {
-  function Company() {
-    this.companyName = faker_1.default.company.companyName();
-    this.phrase = faker_1.default.company.catchPhrase();
-    this.location = {
-      lat: parseFloat(faker_1.default.address.latitude()),
-      lng: parseFloat(faker_1.default.address.longitude())
-    };
-  }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  return Company;
-}();
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Company = /*#__PURE__*/_createClass(function Company() {
+  _classCallCheck(this, Company);
+
+  _defineProperty(this, "companyName", void 0);
+
+  _defineProperty(this, "phrase", void 0);
+
+  _defineProperty(this, "location", void 0);
+
+  this.companyName = _faker.default.company.companyName();
+  this.phrase = _faker.default.company.catchPhrase();
+  this.location = {
+    lat: parseFloat(_faker.default.address.latitude()),
+    lng: parseFloat(_faker.default.address.longitude())
+  };
+});
 
 exports.Company = Company;
-},{"faker":"node_modules/faker/index.js"}],"src/index.ts":[function(require,module,exports) {
+},{"faker":"node_modules/faker/index.js"}],"src/classes/Maps.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Maps = void 0;
 
-var User_1 = require("./classes/User");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Company_1 = require("./classes/Company");
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-var user1 = new User_1.User();
-var company1 = new Company_1.Company();
-console.log(user1);
-console.log(company1);
-},{"./classes/User":"src/classes/User.ts","./classes/Company":"src/classes/Company.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Maps = /*#__PURE__*/function () {
+  function Maps(divId) {
+    _classCallCheck(this, Maps);
+
+    _defineProperty(this, "googleMap", void 0);
+
+    var mapEl = document.getElementById(divId);
+    this.googleMap = new google.maps.Map(mapEl, {
+      center: {
+        lat: 0,
+        lng: 0
+      },
+      zoom: 1
+    });
+  }
+
+  _createClass(Maps, [{
+    key: "addUserMarker",
+    value: function addUserMarker(user) {
+      new google.maps.Marker({
+        map: this.googleMap,
+        position: {
+          lat: user.location.lat,
+          lng: user.location.lng
+        }
+      });
+    }
+  }, {
+    key: "addCompanyMarker",
+    value: function addCompanyMarker(company) {
+      new google.maps.Marker({
+        map: this.googleMap,
+        position: {
+          lat: company.location.lat,
+          lng: company.location.lng
+        }
+      });
+    }
+  }]);
+
+  return Maps;
+}();
+
+exports.Maps = Maps;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+var _User = require("./classes/User");
+
+var _Company = require("./classes/Company");
+
+var _Maps = require("./classes/Maps");
+
+var map1 = new _Maps.Maps('map');
+var user1 = new _User.User();
+var company1 = new _Company.Company();
+map1.addUserMarker(user1);
+map1.addCompanyMarker(company1);
+},{"./classes/User":"src/classes/User.ts","./classes/Company":"src/classes/Company.ts","./classes/Maps":"src/classes/Maps.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -136975,7 +137047,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55496" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59357" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
