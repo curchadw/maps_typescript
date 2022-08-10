@@ -136880,31 +136880,44 @@ var _faker = _interopRequireDefault(require("faker"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var User = /*#__PURE__*/_createClass( //properties for a user
-function User() {
-  _classCallCheck(this, User);
+//the implement statement is optional if we want to make sure a specific class implements a interface
+//The same properties would need to exist in the class
+var User = /*#__PURE__*/function () {
+  //properties for a user
+  function User() {
+    _classCallCheck(this, User);
 
-  _defineProperty(this, "firstName", void 0);
+    _defineProperty(this, "firstName", void 0);
 
-  _defineProperty(this, "lastName", void 0);
+    _defineProperty(this, "lastName", void 0);
 
-  _defineProperty(this, "location", void 0);
+    _defineProperty(this, "location", void 0);
 
-  this.firstName = _faker.default.name.firstName();
-  this.lastName = _faker.default.name.lastName();
-  this.location = {
-    lat: parseFloat(_faker.default.address.latitude()),
-    lng: parseFloat(_faker.default.address.longitude())
-  };
-});
+    this.firstName = _faker.default.name.firstName();
+    this.lastName = _faker.default.name.lastName();
+    this.location = {
+      lat: parseFloat(_faker.default.address.latitude()),
+      lng: parseFloat(_faker.default.address.longitude())
+    };
+  }
+
+  _createClass(User, [{
+    key: "markerContent",
+    value: function markerContent() {
+      return "\n            <div>\n                <h1>User Name ".concat(this.firstName, " ").concat(this.lastName, "</h1>\n                <h4>Location: ").concat(this.location.lat, " ").concat(this.location.lng, "</h4>\n            </div>\n            ");
+    }
+  }]);
+
+  return User;
+}();
 
 exports.User = User;
 },{"faker":"node_modules/faker/index.js"}],"src/classes/Company.ts":[function(require,module,exports) {
@@ -136919,30 +136932,42 @@ var _faker = _interopRequireDefault(require("faker"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Company = /*#__PURE__*/_createClass(function Company() {
-  _classCallCheck(this, Company);
+//Refer to User class on implement clause
+var Company = /*#__PURE__*/function () {
+  function Company() {
+    _classCallCheck(this, Company);
 
-  _defineProperty(this, "companyName", void 0);
+    _defineProperty(this, "companyName", void 0);
 
-  _defineProperty(this, "phrase", void 0);
+    _defineProperty(this, "phrase", void 0);
 
-  _defineProperty(this, "location", void 0);
+    _defineProperty(this, "location", void 0);
 
-  this.companyName = _faker.default.company.companyName();
-  this.phrase = _faker.default.company.catchPhrase();
-  this.location = {
-    lat: parseFloat(_faker.default.address.latitude()),
-    lng: parseFloat(_faker.default.address.longitude())
-  };
-});
+    this.companyName = _faker.default.company.companyName();
+    this.phrase = _faker.default.company.catchPhrase();
+    this.location = {
+      lat: parseFloat(_faker.default.address.latitude()),
+      lng: parseFloat(_faker.default.address.longitude())
+    };
+  }
+
+  _createClass(Company, [{
+    key: "markerContent",
+    value: function markerContent() {
+      return "\n        <div>\n            <h1>Company Name: ".concat(this.companyName, "</h1>\n            <h4>Catch Phrase: ").concat(this.phrase, "</h4>\n            <h4>Location: ").concat(this.location.lat, " ").concat(this.location.lng, "</h4>\n        </div>        \n        ");
+    }
+  }]);
+
+  return Company;
+}();
 
 exports.Company = Company;
 },{"faker":"node_modules/faker/index.js"}],"src/classes/Maps.ts":[function(require,module,exports) {
@@ -136961,6 +136986,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+// import { User } from "./User";
+// import { Company } from "./Company";  
 var Maps = /*#__PURE__*/function () {
   function Maps(divId) {
     _classCallCheck(this, Maps);
@@ -136975,28 +137002,27 @@ var Maps = /*#__PURE__*/function () {
       },
       zoom: 1
     });
-  }
+  } //using the or operator will limit the amount of properties we can refer to since 
+  //the types won't share all of the same properties
+
 
   _createClass(Maps, [{
-    key: "addUserMarker",
-    value: function addUserMarker(user) {
-      new google.maps.Marker({
+    key: "addMarker",
+    value: function addMarker(marker) {
+      var _this = this;
+
+      var mapMarker = new google.maps.Marker({
         map: this.googleMap,
         position: {
-          lat: user.location.lat,
-          lng: user.location.lng
+          lat: marker.location.lat,
+          lng: marker.location.lng
         }
       });
-    }
-  }, {
-    key: "addCompanyMarker",
-    value: function addCompanyMarker(company) {
-      new google.maps.Marker({
-        map: this.googleMap,
-        position: {
-          lat: company.location.lat,
-          lng: company.location.lng
-        }
+      mapMarker.addListener('mouseover', function () {
+        var infoWindow = new google.maps.InfoWindow({
+          content: marker.markerContent()
+        });
+        infoWindow.open(_this.googleMap, mapMarker);
       });
     }
   }]);
@@ -137017,8 +137043,8 @@ var _Maps = require("./classes/Maps");
 var map1 = new _Maps.Maps('map');
 var user1 = new _User.User();
 var company1 = new _Company.Company();
-map1.addUserMarker(user1);
-map1.addCompanyMarker(company1);
+map1.addMarker(user1);
+map1.addMarker(company1);
 },{"./classes/User":"src/classes/User.ts","./classes/Company":"src/classes/Company.ts","./classes/Maps":"src/classes/Maps.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -137047,7 +137073,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59357" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60930" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

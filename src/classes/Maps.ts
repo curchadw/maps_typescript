@@ -1,7 +1,16 @@
-import { User } from "./User";
-import { Company } from "./Company";  
+// import { User } from "./User";
+// import { Company } from "./Company";  
 
-
+//instructions to every other on how
+// they can be an argument to 'addMarker'
+export interface Map_Marker {
+    location:{
+        lat:number;
+        lng:number;
+    };
+    markerContent():string;
+    //color:string;
+}
 
 export class Maps{
     private googleMap: google.maps.Map;
@@ -21,24 +30,23 @@ export class Maps{
 
    
 
-
-    addUserMarker(user: User):void{
-        new google.maps.Marker({
+    //using the or operator will limit the amount of properties we can refer to since 
+    //the types won't share all of the same properties
+    addMarker(marker: Map_Marker):void{
+      const mapMarker =  new google.maps.Marker({
             map: this.googleMap,
             position:{
-                lat: user.location.lat,
-                lng: user.location.lng
+                lat: marker.location.lat,
+                lng: marker.location.lng
             }
         })
-    }
 
-    addCompanyMarker(company: Company):void{
-        new google.maps.Marker({
-            map: this.googleMap,
-            position:{
-                lat:company.location.lat,
-                lng:company.location.lng
-            }
+        mapMarker.addListener('mouseover', () =>{
+            const infoWindow = new google.maps.InfoWindow({
+                content: marker.markerContent()
+            })
+
+            infoWindow.open(this.googleMap,  mapMarker)
         })
     }
 
